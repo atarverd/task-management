@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+
+import { Board } from "./pages/board";
+import { Routes, Route } from "react-router";
+import { BoardList } from "./pages/boardList";
+import { ColorModeSwitcher } from "./ColoreModeSwitch";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  return(
+    <>
+      <ColorModeSwitcher/>
+      <Routes>
+        <Route path="/board/:id" element={<Board/>}/>
+        <Route path="/board" element={<BoardList/>}/>
+      </Routes>
+    </>
+  )
 }
 
 export default App;
