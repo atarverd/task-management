@@ -1,5 +1,7 @@
-import { Card,Text, CardBody, CardFooter, Stack, Button, ButtonGroup, Divider, Heading, Box, Tag, TagLabel, Flex } from '@chakra-ui/react'
+import { Card,Text, CardBody,useColorMode, CardFooter, Stack, Button, ButtonGroup, Divider, Heading, Box, Tag, TagLabel, Flex } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom";
+import { deleteBoard } from 'features/boardSlice';
+import { useDispatch } from 'react-redux';
 
 type TProp={
     boardName:string;
@@ -8,12 +10,16 @@ type TProp={
     category:string;
 }
 export const BoardCard = ({boardName,boardId,boardDescription,category}:TProp) => {
+
+    const dispatch=useDispatch()
     const navigate=useNavigate()
+    const { colorMode } = useColorMode();
+
   return (
-    <Card maxW='sm' onClick={()=>navigate('/board/'+boardId)}>
-  <CardBody>
+    <Card maxW='sm' bg={colorMode === 'light'?'gray.200':'gray.700'}>
+  <CardBody onClick={()=>navigate('/board/'+boardId)}>
     <Box
-        h='300px'
+        h={['150px','300px']}
         borderRadius='8px'
       bgImage={'https://source.unsplash.com/random/300×300/?'+category} bgPosition='center'
 					bgRepeat='no-repeat' objectFit='fill' pt='150px' backgroundSize='cover'
@@ -39,7 +45,7 @@ export const BoardCard = ({boardName,boardId,boardDescription,category}:TProp) =
   <Divider />
   <CardFooter>
     <ButtonGroup spacing='2'>
-      <Button  colorScheme='red'>
+      <Button  colorScheme='red' onClick={()=>dispatch(deleteBoard({boardId}))}>
         Delete
       </Button>
     </ButtonGroup>

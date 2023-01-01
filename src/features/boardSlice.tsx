@@ -87,11 +87,15 @@ const boardSlice = createSlice({
                 boardTasks,
                 boardDescription: action.payload.boardDescription,
             })
+        },
+        deleteBoard:(state,action)=>{
+            return state.filter(board=>board.boardId!==action.payload.boardId)
+            // state.filter(board=>board.boardId!==action.payload.boardId)
         }
 
     }
 })
 
-export const {addTask,moveTask,deleteTask,newBoard,editTask}=boardSlice.actions
+export const {addTask,moveTask,deleteTask,newBoard,editTask,deleteBoard}=boardSlice.actions
 
 export default boardSlice.reducer 

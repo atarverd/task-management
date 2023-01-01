@@ -11,7 +11,7 @@ function App() {
       <ColorModeSwitcher/>
       <Routes>
         <Route path="/board/:id" element={<Board/>}/>
-        <Route path="/board" element={<BoardList/>}/>
+        <Route path="/" element={<BoardList/>}/>
       </Routes>
     </>
   )

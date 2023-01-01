@@ -19,7 +19,7 @@ export const Board = () => {
     return (
      <Box>
         <Button onClick={()=>navigate(-1)}>Back</Button>
-        <Flex justifyContent='space-around'>
+        <Flex justifyContent='space-around' flexWrap='wrap'>
           {currBoard && Object.entries(currBoard).map(el=><StatusList boardTitle={el[0]} boardTask={el[1]}/>)}
         </Flex>
      </Box>

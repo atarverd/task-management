@@ -53,7 +53,7 @@ export const ModalInput = ({boardName,boardId,id,title}:TProp) => {
 
   return (
     <>
-      <Button  size='sm' colorScheme='blue' onClick={onOpen}>Edit</Button>
+      <Button  size='sm' ml='5px' minW='70px' colorScheme='blue' onClick={onOpen}>Edit</Button>
 
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />

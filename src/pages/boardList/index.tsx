@@ -11,7 +11,7 @@ export const BoardList = () => {
 
   return (
     <Box textAlign='center' m='2%'>
-        <Grid templateColumns='repeat(4, 1fr)' gap={6} mb='2%'>
+        <Grid templateColumns={['repeat(1, 1fr)','repeat(2, 1fr)','repeat(3, 1fr)']} gap={6} mb='2%'>
             {board.map(b=><SimpleGrid><BoardCard boardDescription={b.boardDescription} category={b.category} boardId={b.boardId} boardName={b.boardName}/></SimpleGrid>)}
         </Grid>
         <BoardModal/>
